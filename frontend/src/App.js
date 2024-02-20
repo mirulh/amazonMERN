@@ -1,6 +1,11 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import UseState from './testOnly/UseState';
+import UseEffect from './testOnly/UseEffect';
+import UseEffect2 from './testOnly/UseEffect2';
+import UseEffect3 from './testOnly/UseEffect3';
+import UseEffect4 from './testOnly/UseEffect4';
 
 /* The reason why curly brackets {} are used when importing BrowserRouter from 'react-router-dom' is because BrowserRouter is a named export of the 'react-router-dom' package.
 
@@ -20,6 +25,13 @@ function App() {
           <Routes>
             <Route path="/product/:slug" element={<ProductScreen />} />
             <Route path="/" element={<HomeScreen />} />
+
+            {/* this route is used for testing react components. Not necessary for production */}
+            <Route path="/useState-example" element={<UseState />} />
+            <Route path="/useEffect-example" element={<UseEffect />} />
+            <Route path="/useEffect2-example" element={<UseEffect2 />} />
+            <Route path="/useEffect3-example" element={<UseEffect3 />} />
+            <Route path="/useEffect4-example" element={<UseEffect4 />} />
           </Routes>
         </main>
       </div>

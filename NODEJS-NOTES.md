@@ -20,3 +20,11 @@ The package.json file is a manifest file for Node.js projects, which includes me
    - if there is any changes made in the server.js will will restart the server to apply the new changes every time
 
    ![alt text](nodemon_restart.png)
+
+4. STATUS `304` vs STATUS `200`
+
+   - 304: Not Modified, 200: OK
+
+   - a 200 status code means that the server is sending the requested resource in the response, while a 304 status code means that the server is not sending the requested resource again because the client already has a current version of the resource in its `cache`.
+
+   - to recognize the difference open the website link inside private tab and observed the 304 status only appears the second time the website is rendering meaning it shows the same resource it its cache

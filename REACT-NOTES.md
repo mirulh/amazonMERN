@@ -47,3 +47,39 @@ How to use:
 
 - Anchor: `<a href= "path"> Text </a>`
 - Link: `<Link to= "path" > Text </Link>`
+
+## 4. useState()
+
+In React, useState() is a Hook that allows functional components to manage state. Before the introduction of Hooks in React, state management was only possible in class components using the setState() method. However, with the advent of Hooks, functional components can now have stateful logic.
+
+useState() is a function provided by React that returns a stateful value and a function to update that value. The returned array from useState() always contains two elements: the current state value and a function to update that value.
+
+How to use:
+
+1. `import { useState } from 'react';`
+
+2. example of usage:
+
+![alt text](useState.png)
+
+How it works:
+
+![alt text](useState_explained.png)
+
+## 5. useEffect()
+
+useEffect is another Hook in React that allows you to perform `side effects` in function components. Side effects may include data fetching, subscriptions, or manually changing the DOM in React components.
+
+The Effect Hook lets you perform side effects in function components:
+
+Example 1:
+
+- ![alt text](useEffect.png)
+
+Example 2:
+
+- ![alt text](useEffect2.png)
+
+Example 3:
+
+- ![alt text](useEffect3.png)
