@@ -13,7 +13,7 @@ root.render(
 
 /* What is react strict mode? 
 
-- if you enable react strict mode, it renders the components inside your code twice for bug checking purposes. removing it will return it to normal state
+- if you enable react strict mode, it renders the components inside your code twice for bug checking purposes. removing it will return it to normal
 
 read more -> https://react.dev/reference/react/StrictMode
 
