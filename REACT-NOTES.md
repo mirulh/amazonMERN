@@ -83,3 +83,11 @@ Example 2:
 Example 3:
 
 - ![alt text](useEffect3.png)
+
+## 6. useReducer()
+
+useReducer is a hook provided by React that allows you to manage complex state logic in your components in a more structured way. It is an alternative to useState and is particularly useful when state transitions are more complex and involve multiple sub-values, or when the next state depends on the previous one.
+
+Example 1:
+
+- ![alt text](image.png)

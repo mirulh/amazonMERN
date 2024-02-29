@@ -6,6 +6,7 @@ import UseEffect from './testOnly/UseEffect';
 import UseEffect2 from './testOnly/UseEffect2';
 import UseEffect3 from './testOnly/UseEffect3';
 import UseEffect4 from './testOnly/UseEffect4';
+import UseReducer from './testOnly/UseReducer';
 
 /* The reason why curly brackets {} are used when importing BrowserRouter from 'react-router-dom' is because BrowserRouter is a named export of the 'react-router-dom' package.
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/useEffect2-example" element={<UseEffect2 />} />
             <Route path="/useEffect3-example" element={<UseEffect3 />} />
             <Route path="/useEffect4-example" element={<UseEffect4 />} />
+            <Route path="/useReducer-example" element={<UseReducer />} />
           </Routes>
         </main>
       </div>
