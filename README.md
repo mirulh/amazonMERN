@@ -8,7 +8,7 @@ Step by step of the development:
 
    - Navigate to the parent folder in this case amazonMERN
    - Use the command: npx create-react-app frontend\* <- project name
-   - cd frontend <- change directory to the project directory, fontend
+   - cd frontend <- change directory to the project directory, frontend
    - npm start <- start the application in the web
 
    notes: React (Create React App):
@@ -50,3 +50,56 @@ Step by step of the development:
    3. use state hook
    4. use effect hook
    5. use reducer hook
+
+6. Manage State By Reducer Hook
+
+   1. define reducer
+   2. update fetch data
+   3. get state from usReducer
+
+7. Add bootstrap UI Framework
+
+   1. npm install react-bootstrap bootstrap
+   2. update App.js
+
+8. Create Product and Rating Component
+
+   1. create Rating component
+   2. Create Product component
+   3. Use Rating component in Product component
+
+9. Create Product Details Screen
+
+   1. fetch product from backend
+   2. create 3 columns for image, info and action
+
+10. Create Loading and Message Component
+
+- create loading component
+- use spinner component
+- create message component
+- create utils.js to define getError function
+
+11. Create React Context For Add Item To Cart
+
+- Create React Context
+- define reducer
+- create store provider
+- implement add to cart button click handler
+
+12. Complete Add To Cart
+
+- check exist item in the cart
+- check count in stock in backend
+
+13. Create Cart Screen
+
+- create 2 columns
+- display items list
+- create action column
+
+14. Complete Cart Screen
+
+- click handler for inc/dec item
+- click handler for remove item
+- click handler for checkout
