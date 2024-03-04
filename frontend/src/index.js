@@ -2,20 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { HelmetProvider } from 'react-helmet-async';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // [1]
+  // <React.StrictMode>
+  <HelmetProvider>
     <App />
-  </React.StrictMode>
+  </HelmetProvider>
+  // </React.StrictMode>
 );
 
-/* What is react strict mode? 
+/* 
+
+[1] What is react strict mode? 
 
 - if you enable react strict mode, it renders the components inside your code twice for bug checking purposes. removing it will return it to normal
 
 read more -> https://react.dev/reference/react/StrictMode
+
+[2] import react bootstrap's directory in the index.js as well to enable bootstrap packages elsewhere
+
+how to import: 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 */
 

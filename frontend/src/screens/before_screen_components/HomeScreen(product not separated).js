@@ -3,8 +3,6 @@ import axios from 'axios';
 import { useEffect, useReducer, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Product from '../components/Product';
-import { Helmet } from 'react-helmet-async';
 
 // import data from '../data';
 
@@ -56,9 +54,6 @@ function HomeScreen() {
 
   return (
     <div>
-      <Helmet>
-        <title>Amazona</title>
-      </Helmet>
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
@@ -69,9 +64,23 @@ function HomeScreen() {
           <Row>
             {products.map((product) => (
               // [7]
-              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                {/* [! IMP] */}
-                <Product product={product}></Product>
+              <Col sm={6} md={4} lg={3} className="mb-3">
+                <div className="product" key={product.slug}>
+                  {/* [6] */}
+                  <Link to={`/product/${product.slug}`}>
+                    <img src={product.image} alt={product.name} />
+                  </Link>
+                  <div className="product-info">
+                    {/* [6] */}
+                    <Link to={`/product/${product.slug}`}>
+                      <p>{product.name}</p>
+                    </Link>
+                    <p>
+                      <strong>${product.price}</strong>
+                    </p>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
               </Col>
             ))}
           </Row>
@@ -84,15 +93,6 @@ function HomeScreen() {
 export default HomeScreen;
 
 /* 
-
-[! IMP]
-
-  <Product product={product}></Product>
-
-  explanation for this code:
-
-  So, in summary, the <Product product={product}></Product> code is rendering the Product component and passing a prop named product with the value of the product variable to it. This allows the Product component to access and use the product data within its own implementation.
-
 
 [1] loading: true, show the loading box when requesting the product data
 
