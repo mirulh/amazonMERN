@@ -109,3 +109,9 @@ and import the package by adding
 ## 8. helmet async
 
 React Helmet Async is an asynchronous version of the React Helmet library. React Helmet is a popular library in the React ecosystem used for managing the <head> of your HTML document. It allows you to dynamically update meta tags, titles, styles, scripts, and other elements in the document head based on the state of your React components.
+
+## 9. className = "visually-hidden"
+
+The className="visually-hidden" attribute is typically used in HTML elements to visually hide the content from sighted users while keeping it accessible to screen readers and other assistive technologies.
+
+This class name is used in the loading components to indicate the screen is loading

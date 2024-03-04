@@ -9,6 +9,9 @@ import Rating from '../components/Rating';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/esm/Button';
 import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { getError } from '../utils';
 // import logger from 'use-reducer-logger';
 
 const reducer = (state, action) => {
@@ -46,7 +49,10 @@ function ProductScreen() {
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
         console.log('STATUS: FETCH SUCCESS');
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        // [3]
+        // dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+
         console.log('STATUS: FETCH FAIL');
       }
     };
@@ -54,9 +60,9 @@ function ProductScreen() {
   }, [slug]);
 
   return loading ? (
-    <div>Loading...</div>
+    <LoadingBox></LoadingBox>
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div>
       <Row>
@@ -142,5 +148,8 @@ export default ProductScreen;
   [2] if product in stock is greater than 0 which means that it is available, then we render the button add to cart, else the button will not show up
 
   'd-grid' class will make the button full-width
+
+  [3] using getError from utils to retrieve error message "Product not found" from the backend. Alternatively, using "payload: err.response.data.message" also works the same without creating utils.js
+
 
 */

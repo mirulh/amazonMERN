@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 // import data from '../data';
 
@@ -62,9 +64,10 @@ function HomeScreen() {
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <LoadingBox />
         ) : error ? (
-          <div>{error}</div>
+          // [8]
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
@@ -119,5 +122,6 @@ export default HomeScreen;
       (https://stackoverflow.com/questions/41574776/what-is-class-mb-0-in-bootstrap-4)
 
 
+[8] passing the variant danger as props to the MessageBox component. To test out this component, set network throttling and navigate to home page. The screen will display network error message inside red label 
 
 */
