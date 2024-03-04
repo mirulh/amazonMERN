@@ -91,3 +91,21 @@ useReducer is a hook provided by React that allows you to manage complex state l
 Example 1:
 
 - ![alt text](image.png)
+
+## 7. reducer logger package
+
+useReducer logger package is a development end tool for checking the reducer dispatch status. To use the package, install
+
+`npm install use-reducer-logger --force`
+
+then in the codebase, implement the keyword logger by wrapping in the reducer function such as this
+
+`const [state, dispatch] = useReducer(logger(reducer), initialState);`
+
+and import the package by adding
+
+`import logger from 'use-reducer-logger';`
+
+## 8. helmet async
+
+React Helmet Async is an asynchronous version of the React Helmet library. React Helmet is a popular library in the React ecosystem used for managing the <head> of your HTML document. It allows you to dynamically update meta tags, titles, styles, scripts, and other elements in the document head based on the state of your React components.
