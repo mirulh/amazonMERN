@@ -14,15 +14,15 @@ function reducer(state, action) {
 
 function UseReducer() {
   // this is for spread syntax only
-  const numberOne = [1, 2, 3];
-  const numberTwo = [4, 5, 6];
-  const spreadSyn = [...numberOne, ...numberTwo];
-  const nonSpread = [numberOne, numberTwo];
+  // const numberOne = [1, 2, 3];
+  // const numberTwo = [4, 5, 6];
+  // const spreadSyn = [...numberOne, ...numberTwo];
+  // const nonSpread = [numberOne, numberTwo];
 
-  console.log('spread syn');
-  console.log(spreadSyn);
-  console.log('non spread syn');
-  console.log(nonSpread);
+  // console.log('spread syn');
+  // console.log(spreadSyn);
+  // console.log('non spread syn');
+  // console.log(nonSpread);
   // end
 
   const [state, dispatch] = useReducer(reducer, { count: 0 });
