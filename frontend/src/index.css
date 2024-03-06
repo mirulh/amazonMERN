@@ -28,7 +28,7 @@ main {
   flex: 1;
 }
 
-.btn.btn-primary {
+.btn-primary {
   background-color: #f0c040;
   color: #000000;
 }
@@ -61,13 +61,13 @@ main {
   max-width: 100%;
 }
 
-.img-fluid.rounded.img-thumbnail {
+.img-thumbnail {
   height: 80px;
 }
 
 /* 
 
-[1] So, setting flex: 1; on a flex item essentially means that the item can grow and shrink as needed to fill the available space in the flex container along the main axis. It's a common technique used to distribute space evenly among flex items within a flex container.
+[1] Setting flex: 1; on a flex item essentially means that the item can grow and shrink as needed to fill the available space in the flex container along the main axis. It's a common technique used to distribute space evenly among flex items within a flex container.
 
 
 
