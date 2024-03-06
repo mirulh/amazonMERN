@@ -9,6 +9,8 @@ import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
+import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
 // [3]
 import UseState from './testOnly/UseState';
 import UseEffect from './testOnly/UseEffect';
@@ -20,7 +22,6 @@ import UseContext from './testOnly/UseContext';
 import UseContext2 from './testOnly/UseContext2';
 import UseContext3 from './testOnly/UseContext3';
 import UseContext4 from './testOnly/UseContext4';
-import CartScreen from './screens/CartScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -55,6 +56,7 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
+              <Route path="/signin" element={<SigninScreen />} />
               <Route path="/" element={<HomeScreen />} />
               {/* [3] */}
               <Route path="/useState-example" element={<UseState />} />

@@ -65,6 +65,10 @@ main {
   height: 80px;
 }
 
+.small-container {
+  max-width: 600px;
+}
+
 /* 
 
 [1] Setting flex: 1; on a flex item essentially means that the item can grow and shrink as needed to fill the available space in the flex container along the main axis. It's a common technique used to distribute space evenly among flex items within a flex container.
