@@ -1,5 +1,20 @@
 import express from 'express';
 import data from './data.js';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+// process.env.MONGODB_URI is taken from url in env file
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    // [1]
+    console.log('connect to db');
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 const app = express();
 
@@ -35,3 +50,10 @@ app.listen(port, () => {
 // --- all you need to have for a simple server ---
 
 //test that will restart and update the server
+
+/* 
+
+[1] npm start in backend to see the connection message "connect to db" if everything goes right. Error message will log out if there invalid url
+
+
+*/
