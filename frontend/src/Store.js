@@ -8,6 +8,9 @@ const initialState = {
     : null,
 
   cart: {
+    shippingAddress: localStorage.getItem('shippingAddress')
+      ? JSON.parse(localStorage.getItem('shippingAddress'))
+      : {},
     cartItems: localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
       : [],
@@ -42,6 +45,19 @@ function reducer(state, action) {
       return {
         ...state,
         userInfo: null,
+        // [1]
+        cart: {
+          cartItems: [],
+          shippingAddress: {},
+        },
+      };
+    case 'SAVE_SHIPPING_ADDRESS':
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          shippingAddress: action.payload,
+        },
       };
     default:
       return state;
@@ -55,3 +71,10 @@ export function StoreProvider(props) {
 
   return <Store.Provider value={value}>{props.children}</Store.Provider>;
 }
+
+/* 
+
+[1] when user signed out, the cart counter will 0 / reset to null but the cartItems data in localStorage is still there (remove it to see the difference). To empty the localStorage use this instead localStorage.removeItem('cartItems');
+
+
+*/

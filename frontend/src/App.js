@@ -25,6 +25,7 @@ import UseContext from './testOnly/UseContext';
 import UseContext2 from './testOnly/UseContext2';
 import UseContext3 from './testOnly/UseContext3';
 import UseContext4 from './testOnly/UseContext4';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -33,6 +34,8 @@ function App() {
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('cartItems');
   };
 
   return (
@@ -68,6 +71,7 @@ function App() {
                     <Link
                       className="dropdown-item"
                       to="#signout"
+                      // to="/signin" //redirect back to sign in
                       onClick={signoutHandler}
                     >
                       Sign Out
@@ -89,6 +93,7 @@ function App() {
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
+              <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/" element={<HomeScreen />} />
               {/* [3] */}
               <Route path="/useState-example" element={<UseState />} />
