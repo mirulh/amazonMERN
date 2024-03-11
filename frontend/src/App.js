@@ -27,6 +27,7 @@ import UseContext3 from './testOnly/UseContext3';
 import UseContext4 from './testOnly/UseContext4';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SignupScreen from './screens/SignupScreen';
+import PaymentMetohdScreen from './screens/PaymentMetohdScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -37,6 +38,7 @@ function App() {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('cartItems');
+    localStorage.removeItem('paymentMethod');
   };
 
   return (
@@ -96,6 +98,8 @@ function App() {
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/shipping" element={<ShippingAddressScreen />} />
+              <Route path="/payment" element={<PaymentMetohdScreen />} />
+
               <Route path="/" element={<HomeScreen />} />
               {/* [3] */}
               <Route path="/useState-example" element={<UseState />} />
