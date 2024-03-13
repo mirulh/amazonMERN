@@ -76,6 +76,8 @@ function reducer(state, action) {
 export function StoreProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  console.log('State:', JSON.stringify(state, null, 2));
+
   const value = { state, dispatch };
 
   return <Store.Provider value={value}>{props.children}</Store.Provider>;
