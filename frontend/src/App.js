@@ -14,6 +14,10 @@ import { useContext } from 'react';
 import { Store } from './Store';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
+import SignupScreen from './screens/SignupScreen';
+import PaymentMetohdScreen from './screens/PaymentMetohdScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 // [3]
 import UseState from './testOnly/UseState';
 import UseEffect from './testOnly/UseEffect';
@@ -25,10 +29,6 @@ import UseContext from './testOnly/UseContext';
 import UseContext2 from './testOnly/UseContext2';
 import UseContext3 from './testOnly/UseContext3';
 import UseContext4 from './testOnly/UseContext4';
-import ShippingAddressScreen from './screens/ShippingAddressScreen';
-import SignupScreen from './screens/SignupScreen';
-import PaymentMetohdScreen from './screens/PaymentMetohdScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
