@@ -25,4 +25,18 @@ orderRouter.post(
   })
 );
 
+// this will search the order in the database and return it (get) to the front end
+orderRouter.get(
+  '/:id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      res.send(order);
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
 export default orderRouter;

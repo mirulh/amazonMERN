@@ -29,6 +29,7 @@ import UseContext from './testOnly/UseContext';
 import UseContext2 from './testOnly/UseContext2';
 import UseContext3 from './testOnly/UseContext3';
 import UseContext4 from './testOnly/UseContext4';
+import OrderScreen from './screens/OrderScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -101,6 +102,7 @@ function App() {
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/payment" element={<PaymentMetohdScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/order/:id" element={<OrderScreen />} />
 
               <Route path="/" element={<HomeScreen />} />
               {/* [3] */}
