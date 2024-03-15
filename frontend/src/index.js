@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { HelmetProvider } from 'react-helmet-async';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from './Store';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +14,10 @@ root.render(
   // <React.StrictMode>
   <StoreProvider>
     <HelmetProvider>
-      <App />
+      {/* [3] */}
+      <PayPalScriptProvider deferLoading={true}>
+        <App />
+      </PayPalScriptProvider>
     </HelmetProvider>
   </StoreProvider>
   // </React.StrictMode>
@@ -31,6 +35,8 @@ read more -> https://react.dev/reference/react/StrictMode
 
 how to import: 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+[3] setting to deferLoading={true} because we don't want load paypal at the beginning of loading the application
 
 
 */

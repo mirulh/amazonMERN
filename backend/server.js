@@ -25,6 +25,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// return paypal client id. Else return 'sb' = sandbox
+app.get('/api/keys/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+});
+
 // http://localhost:5000/api/seed
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
