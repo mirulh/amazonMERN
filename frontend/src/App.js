@@ -18,6 +18,7 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SignupScreen from './screens/SignupScreen';
 import PaymentMetohdScreen from './screens/PaymentMetohdScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
 // [3]
 import UseState from './testOnly/UseState';
 import UseEffect from './testOnly/UseEffect';
@@ -50,44 +51,50 @@ function App() {
         <ToastContainer position="bottom-center" limit={1} />
         <header>
           {/* links back to the home page "/" */}
-          <Navbar bg="dark" variant="dark">
+          {/* [7] */}
+          <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>amazona</Navbar.Brand>
               </LinkContainer>
-              <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                    </Badge>
-                  )}
-                </Link>
-                {userInfo ? (
-                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Divider />
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      // to="/signin" //redirect back to sign in
-                      onClick={signoutHandler}
-                    >
-                      Sign Out
-                    </Link>
-                  </NavDropdown>
-                ) : (
-                  <Link className="nav-link" to="/signin">
-                    Sign In
+              {/* [5] */}
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              {/* [6] */}
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto w-100 justify-content-end">
+                  <Link to="/cart" className="nav-link">
+                    Cart
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg="danger">
+                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      </Badge>
+                    )}
                   </Link>
-                )}
-              </Nav>
+                  {userInfo ? (
+                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                      <LinkContainer to="/profile">
+                        <NavDropdown.Item>User Profile</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderhistory">
+                        <NavDropdown.Item>Order History</NavDropdown.Item>
+                      </LinkContainer>
+                      <NavDropdown.Divider />
+                      <Link
+                        className="dropdown-item"
+                        to="#signout"
+                        // to="/signin" //redirect back to sign in
+                        onClick={signoutHandler}
+                      >
+                        Sign Out
+                      </Link>
+                    </NavDropdown>
+                  ) : (
+                    <Link className="nav-link" to="/signin">
+                      Sign In
+                    </Link>
+                  )}
+                </Nav>
+              </Navbar.Collapse>
             </Container>
           </Navbar>
         </header>
@@ -102,6 +109,7 @@ function App() {
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/payment" element={<PaymentMetohdScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/orderhistory" element={<OrderHistoryScreen />} />
               <Route path="/order/:id" element={<OrderScreen />} />
 
               <Route path="/" element={<HomeScreen />} />
@@ -146,5 +154,11 @@ A module can only have one default export, but as many named exports as you like
 [3] this import is used for react hooks test only
 
 [4] limit to {1} means that we are going to show only one toast at a time
+
+[5] implement "hamburger" bar for mobile and small screen viewer
+
+[6] wrap nav content inside the hamburger on mobile view
+
+[7] expand=lg, expand to larger screen maintain the navigation bar to the default (without hamburger menu)
 
 */

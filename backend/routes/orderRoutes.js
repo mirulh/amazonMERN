@@ -25,6 +25,17 @@ orderRouter.post(
   })
 );
 
+// put this before '/:id' or else the api will be handled by '/:id' and not 'mine'
+// const { data } = await axios.get(`/api/orders/mine`
+orderRouter.get(
+  '/mine',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.send(orders);
+  })
+);
+
 // this will search the order in the database and return it (get) to the front end
 orderRouter.get(
   '/:id',
