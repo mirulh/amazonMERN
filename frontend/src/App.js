@@ -19,6 +19,7 @@ import SignupScreen from './screens/SignupScreen';
 import PaymentMetohdScreen from './screens/PaymentMetohdScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
 // [3]
 import UseState from './testOnly/UseState';
 import UseEffect from './testOnly/UseEffect';
@@ -42,6 +43,8 @@ function App() {
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('cartItems');
     localStorage.removeItem('paymentMethod');
+    // prevent userInfo = null, error
+    window.location.href = '/signin';
   };
 
   return (
@@ -111,6 +114,7 @@ function App() {
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/orderhistory" element={<OrderHistoryScreen />} />
               <Route path="/order/:id" element={<OrderScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
 
               <Route path="/" element={<HomeScreen />} />
               {/* [3] */}
