@@ -36,6 +36,7 @@ import UseContext from './testOnly/UseContext';
 import UseContext2 from './testOnly/UseContext2';
 import UseContext3 from './testOnly/UseContext3';
 import UseContext4 from './testOnly/UseContext4';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -147,7 +148,7 @@ function App() {
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
-                  to={`/search/category=${category}`}
+                  to={{ pathname: '/search', search: `category=${category}` }}
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   <Nav.Link>{category}</Nav.Link>
@@ -170,6 +171,7 @@ function App() {
               <Route path="/orderhistory" element={<OrderHistoryScreen />} />
               <Route path="/order/:id" element={<OrderScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
 
               <Route path="/" element={<HomeScreen />} />
               {/* [3] */}
