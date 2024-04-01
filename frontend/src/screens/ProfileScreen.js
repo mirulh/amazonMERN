@@ -1,7 +1,6 @@
 import React, { useContext, useReducer, useState } from 'react';
 import { Store } from '../Store';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
 import { Helmet } from 'react-helmet-async';
 import Button from 'react-bootstrap/Button';
 import { getError } from '../utils';
@@ -36,6 +35,11 @@ export default function ProfileScreen() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      // if password is not matching, prevents it from continuing
+      toast.error('Password do not match');
+      return;
+    }
     try {
       const { data } = await axios.put(
         '/api/users/profile',
