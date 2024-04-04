@@ -32,3 +32,17 @@ export const isAuth = (req, res, next) => {
     res.status(401).send({ message: 'No Token' });
   }
 };
+
+export const isAdmin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    next(); // [1]
+  } else {
+    res.status(401).send({ message: 'Invalid Admin Token' });
+  }
+};
+
+/* 
+
+[1] go to the next middleware, it means everything is okay and the API operation continues where it left off
+
+*/
